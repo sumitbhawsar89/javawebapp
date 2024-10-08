@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebapp
+spec:
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebapp
+        image: kulbhushanmayer/javawebapp:latest
+        resources:
+          limits:
+            memory: "250Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8080
+          name: tomcat
